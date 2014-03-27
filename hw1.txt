@@ -1,0 +1,6 @@
+Jake Waksbaum
+HW#1 2/4/14
+
+Home computing environment: Windows XP Desktop and Macbook Pro with Linux Mint dual booted on seperate partition
+CS Journey: I taught myself the basics of Python and Ruby and I like to build webapps with Ruby on Rails to learn more about web developement.
+Last semester was the first formal CS training I've had and I liked understanding how and why something worked rather than fiddling around until it worked.

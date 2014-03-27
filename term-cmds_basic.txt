@@ -1,0 +1,62 @@
+========================================
+IntroCS2 Classwork for Monday 2014-02-10
+========================================
+
+Work with your neighbors to find out as much as you can about what each of these commands does. 
+You already know how some of them work, so use your existing knowledge to make inferences as you experiment with the rest.
+Record your findings in a plaintext file named term-cmds_basic.txt and upload to the HW server.
+
+pwd 				=> print path of working directory
+ls 					=> display working directory contents
+ls -l 				=> display extra info like permissions and modified date
+ls -al 				=> display extra info and display hidden files and folders
+cd / 				=> change working directory to root
+cd 					=> nothing
+cd ~ 				=> change working directory to home directory
+cd .. 				=> change working directory to the parent directory of the current working directory
+cd ../.. 			=> change working directory to the parent directory of the parent directory (the grandparent directory if you will) of the current working directory
+cd ~/Downloads 		=> change working directory to Downloads
+exit 				=> logout of the tty session, usually starting login prompt
+
+
+Execute these commands in the order listed, 
+  from your home directory, 
+    to best gain an understanding of their function.
+------------------------------------------------------------
+cd ~ 			=> change working directory to home directory
+ls -l 			=> display extra info like permissions and modified date
+touch foo 		=> create an empty file called "foo"
+ls -l 			=> we now see the new file "foo"
+ls -l fo* 		=> display extra info like permissions and modified date for all files matching the pattern fo*, which in this case is one f followed by any number (including 0) of o's
+cp foo boo 		=> cp foo to a new file named boo
+ls -l 			=> we see "boo" and "foo"
+mv foo shoo 	=> rename "foo" "shoo"
+ls -l 			=> we now see "foo" is called "shoo"
+
+
+Now do the same for these -- again from your home directory:
+------------------------------------------------------------
+mkdir goo 		=> creates a directory called goo
+ls -l 			=> we see this directory
+rmdir goo 		=> deletes a directory called goo
+ls -l 			=> we see that it's gone
+mkdir goo 		=> creates a directory called goo again
+cd goo 			=> change working directory to goo
+ls -l 			=> look inside the empty directory
+touch noo 		=> create an empty file called noo
+ls -l 			=> see the file "noo"
+cd .. 			=> exit from goo back into the parent directory
+ls -l
+rmdir goo 		=> delete the directory goo
+
+(...what just happened? Can you figure out how to acheive your goal here?) => tty raised an error saying that "Directory not empty", maybe delete noo and then delete goo
+
+
+Finally, issue this command:
+man pwd
+(and hit Q to exit when you're done reading)
+
+...what does this tell you? => explains how to use pwd and all of its options
+
+Does it work on other commands? => yes it does
+Should you revisit some of the entries above after manning these commands? (Yes, you should...)

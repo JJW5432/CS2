@@ -1,0 +1,24 @@
+Python 2.7.3 (default, Aug  1 2012, 05:16:07) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> s = "Always strive and prosper"
+>>> s[3:4]
+'a'
+>>> s[3:5]
+'ay'
+>>> s[:5]
+'Alway'
+>>> s[3:]
+'ays strive and prosper'
+>>> s[-]
+  File "<stdin>", line 1
+    s[-]
+       ^
+SyntaxError: invalid syntax
+>>> s[-1]
+'r'
+>>> s[:-1]
+'Always strive and prospe'
+>>> s[:-2]
+'Always strive and prosp'
+>>> 

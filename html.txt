@@ -1,0 +1,21 @@
+Jake Waksbaum
+IntroCS2 pd 1
+HW#3
+2014-02-10
+
+HTML Resources on the Web
+
+W3Schools HTML Tutorial
+http://www.w3schools.com/html/
+Google Search "html"
+It has a section on most common elements, and provides Try it yourself examples in which you can fiddle with the code to figure out how it works.
+
+
+Dive Into HTML5
+http://diveintohtml5.info/index.html
+Google Search "html5" (after seeing that W3Schools HTML Tutorial flaunted HTML5 compliance)
+
+W3C HTML
+http://www.w3.org/html/
+Google Search W3C (after reading about history of HTML in Dive Into HTML5)
+Apparantly is the authority on HTML standards.
