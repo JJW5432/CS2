@@ -1,3 +1,8 @@
+# Flying Koalas
+# IntroCS2 1
+# HW25 - Furhter Explorations in Toy Encryption
+# 2014-03-27
+
 import string
 
 def rotn(n, s):
