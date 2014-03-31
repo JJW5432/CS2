@@ -15,6 +15,9 @@ def is_vowel(char):
 	"""
 	return "aeioiuy".find(char.lower()) != -1
 	
+def is_letter(char):
+	return 'abcdefghijklmnopqrstuvwxyz'.find(char.lower()) != -1
+
 def is_upper(word):
 	return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.find(word[0]) != -1
 
@@ -35,6 +38,19 @@ def pigWord(word):
 	if is_upper(word):
 		output = output.capitalize()
 	return output
+
+def findWord(phrase):
+	index = 0
+	while is_letter(phrase[index]):
+		index += 1
+	return index
+
+def nextWord(phrase):
+	new_phrase = phrase[findWord(phrase):]
+	index = 0
+	while not is_letter(new_phrase[index]):
+		index += 1
+	return index
 
 if __name__ == "__main__":
 	import doctest
