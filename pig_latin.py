@@ -1,3 +1,27 @@
+# Team #9 -- Dante Secada-Oz, Jake Waksbaum, Lydia Chen
+# IntroCS2 pd 1
+# HW #26 - Anslatingtray Englishway intoway Igpay Atinlay  
+# 2014-3-31
+
+#Pig Latin Rules:
+    #1. For words begining with consonants, shift all letters before the first vowel to the end of word and add the suffix "ay"
+    #2. If the word begins with a vowel, add the suffix "way"
+    #3. If the given word begins with a capitolized letter, capitolized the first letter of the translated word
+    
+#Summary of Approach:
+
+#PseudoCode
+    #translation function
+        #word in phrase
+         #begins with a consonant
+           #append all constants before the first vowel
+           #add suffix "ay"
+         #begins with a vowel
+             #append "way"
+         #if first letter is capitolized
+             #uppercase the first letter of the newer string
+
+
 def is_vowel(char):
 	"""checks if one character string char is a vowel
 	Tests:
