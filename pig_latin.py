@@ -63,9 +63,14 @@ def starting_sound(word):
 
 			>>> starting_sound('crystal')
 			'cr'
+
+			>>> starting_sound('quiet')
+			'qu'
 	"""
 	if word[0] == 'y':
 		return 'y'
+	elif word[0:2] == 'qu':
+		return 'qu'
 	index = 0
 	while not is_vowel(word[index]):
 		index += 1
@@ -175,7 +180,14 @@ def translate(phrase):
 
 			>>> translate('But soft! What light through yonder window breaks? It is the east, and Juliet is the sun.')
 			'Utbay oftsay! Atwhay ightlay oughthray onderyay indowway eaksbray? Itway isway ethay eastway, andway Ulietjay isway ethay unsay.'
+			>>> translate('quiet')
+			'ietquay'
 
+			>>> translate('pyramid')
+			'yramidpay'
+
+			>>> translate('school-work')
+			'oolschay-orkway'
 	"""
 	output = ''
 	while len(phrase) > 0:
