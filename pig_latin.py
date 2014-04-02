@@ -204,6 +204,7 @@ def translate(phrase):
 
 			>>> translate('But soft! What light through yonder window breaks? It is the east, and Juliet is the sun.')
 			'Utbay oftsay! Atwhay ightlay oughthray onderyay indowway eaksbray? Itway isway ethay eastway, andway Ulietjay isway ethay unsay.'
+			
 			>>> translate('quiet')
 			'ietquay'
 
