@@ -236,10 +236,8 @@ def translate(phrase):
 			>>> translate('pyramid')
 			'yramidpay'
 
-<<<<<<< HEAD
 			>>> translate('school-work')
 			'oolschay-orkway'
-=======
 			>>> translate("You can't do that!!")
 			"Ouyay an'tcay oday atthay!!"
 
