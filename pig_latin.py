@@ -1,28 +1,45 @@
-# Team #9 -- Dante Secada-Oz, Jake Waksbaum, Lydia Chen
+# Team 9 -- Dante Secada-Oz, Jake Waksbaum, Lydia Chen
 # IntroCS2 pd 1
-# HW #26 - Anslatingtray Englishway intoway Igpay Atinlay  
+# HW 26 - Anslatingtray Englishway intoway Igpay Atinlay  
 # 2014-3-31
-
-#Pig Latin Rules:
-    #1. For words begining with consonants, shift all letters comprising the first sound to the end of word and add the suffix "ay"
-    #2. If the word begins with a vowel, add the suffix "way"
-    #3. If the given word begins with a capitalized letter, capitalize the first letter of the translated word
-    
-#Summary of Approach:
-    #translate one word 
-        #get the starting sound, which will be nothing for a word starting with a vowel
-        #take off the starting sound from the beginning, add it to the end, and add 'ay'
-        #	except if there is no starting sound (becasue it starts with a vowel) add 'w' where you would add the starting sound
-        #if the original word was capitalized, capitalize the output
-
-    #translate a phrase
-    	## recursive approach: while there is still phrase left to translate
-	    	# look for a word
-		    	# pass on everything before the word as is
-		    	# pass translated the word
-		    	# chop off everything up until the end of the word
-		    # if there are no words left pass everything you've got left and you're done
-
+# 
+# Pig Latin Rules:
+#     1. For words begining with consonants, shift all letters comprising the first sound to the end of word and add the suffix "ay"
+#     2. If the word begins with a vowel, add the suffix "way"
+#     3. If the given word begins with a capitalized letter, capitalize the first letter of the translated word
+#     
+# Summary of Approach:
+#     translate one word 
+#         get the starting sound, which will be nothing for a word starting with a vowel
+#         take off the starting sound from the beginning, add it to the end, and add 'ay'
+#         except if there is no starting sound (becasue it starts with a vowel) add 'w' where you would add the starting sound
+#         if the original word was capitalized, capitalize the output
+# 
+#     translate a phrase
+#     	recursive approach: while there is still phrase left to translate
+# 	    	look for a word
+# 		    	pass on everything before the word as is
+# 		    	pass translated the word
+# 		    	chop off everything up until the end of the word
+# 		    if there are no words left pass everything you've got left and you're done
+#
+#
+# Developement Log:
+# 2014-03-29 8:00
+# Dante, Jake, Lydia: Planned helper functions and algorithm for pigWord and wrote working pigWord function
+#
+# 2014-03-29 18:00
+# Dante: Wrote functioning translate function and necessary helper functions using an algorithm based on hopping from space to space
+# 
+# 2014-03-29 18:00
+# Jake: Wrote functioning translate function and necessary helper functions using algorithm described above
+#
+# 2014-04-01 8:00
+# Dante, Jake, Lydia: Compared Dante and Jake's work from previous night and decided to continue to improve Jake's because it already had no issues with punctuation because it is based on finding words and ignoring other stuff as opposed to finding spaces
+# Lydia: fixed issue with 'q' words
+#
+# 2014-04-01 18:00
+# Jake: added support for contractions and quotation marks
 
 def is_vowel(char):
 	"""checks if one character string char is a vowel
@@ -100,7 +117,6 @@ def starting_sound(word):
 	index = 0
 	while not is_vowel(word[index]):
 		index += 1
-		#print index
 	return word[:index]
 
 
@@ -166,7 +182,7 @@ def findWordStart(phrase):
 			>>> findWordStart(' hello how are you')
 			1
 
-			>>> findWordStart('!!!!!, adf%&#(@')
+			>>> findWordStart('!!!!!, adf%&(@')
 			7
 
 			>>> findWordStart('!!!!')
@@ -196,7 +212,7 @@ def findWordEnd(phrase):
 			>>> findWordEnd(' hello how are you')
 			6
 
-			>>> findWordEnd('!!!!!, adf%&#(@')
+			>>> findWordEnd('!!!!!, adf%&(@')
 			10
 
 			>>> findWordEnd('!!!!!!')
@@ -211,7 +227,7 @@ def findWordEnd(phrase):
 	index = findWordStart(phrase)
 	if index == -1:  # no words to begin with
 		return -1
-	while index < len(phrase) and (is_letter(phrase[index]) or phrase[index] == "'"): #apostrophe doesn't end a word for contractions
+	while index < len(phrase) and (is_letter(phrase[index]) or phrase[index] == "'"): # apostrophe doesn't end a word for contractions
 		index += 1
 	return index
 
@@ -243,16 +259,15 @@ def translate(phrase):
 
 			>>> translate("But then she said to me, 'I've had enough.'")
 			"Utbay enthay eshay aidsay otay emay, 'I'veway adhay enoughway.'"
->>>>>>> updates
 	"""
 	output = ''
 	while len(phrase) > 0:
-		start, end = findWordStart(phrase), findWordEnd(phrase)		# so we don't call function many times
-		if start != -1:								# there are words left
+		start, end = findWordStart(phrase), findWordEnd(phrase)		#so we don't call function many times
+		if start != -1:							# there are words left
 			output += phrase[:start]  				# get everything before the word
 			output += pigWord(phrase[start:end])  	# get the translated word
 			phrase = phrase[end:]  					# slice off what we got
-		else: # no words left
+		else: 									# no words left
 			output += phrase						# stick on whats left
 			phrase = ''								# empty phrase to get out of the loop
 	return output
