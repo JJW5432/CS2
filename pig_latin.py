@@ -4,22 +4,24 @@
 # 2014-3-31
 
 #Pig Latin Rules:
-    #1. For words begining with consonants, shift all letters before the first vowel to the end of word and add the suffix "ay"
+    #1. For words begining with consonants, shift all letters comprising the first sound to the end of word and add the suffix "ay"
     #2. If the word begins with a vowel, add the suffix "way"
-    #3. If the given word begins with a capitolized letter, capitolized the first letter of the translated word
+    #3. If the given word begins with a capitalized letter, capitalize the first letter of the translated word
     
 #Summary of Approach:
+    #translate one word 
+        #get the starting sound, which will be nothing for a word starting with a vowel
+        #take off the starting sound from the beginning, add it to the end, and add 'ay'
+        #	except if there is no starting sound (becasue it starts with a vowel) add 'w' where you would add the starting sound
+        #if the original word was capitalized, capitalize the output
 
-#PseudoCode
-    #translation function
-        #word in phrase
-         #begins with a consonant
-           #append all constants before the first vowel
-           #add suffix "ay"
-         #begins with a vowel
-             #append "way"
-         #if first letter is capitolized
-             #uppercase the first letter of the newer string
+    #translate a phrase
+    	## recursive approach: while there is still phrase left to translate
+	    	# look for a word
+		    	# pass on everything before the word as is
+		    	# pass translated the word
+		    	# chop off everything up until the end of the word
+		    # if there are no words left pass everything you've got left and you're done
 
 
 def is_vowel(char):
@@ -52,7 +54,7 @@ def is_letter(char):
 			>>> is_letter(' ')
 			False
 	"""
-	return 'abcdefghijklmnopqrstuvwxyz'.find(char.lower()) != -1
+	return "abcdefghijklmnopqrstuvwxyz".find(char.lower()) != -1
 
 
 def is_capitalized(word):
@@ -88,11 +90,14 @@ def starting_sound(word):
 			>>> starting_sound('crystal')
 			'cr'
 	"""
-	if word[0] == 'y':
+	if word[0].lower() == 'y':
 		return 'y'
+	elif word[0:2].lower() == 'qu':
+		return 'qu'
 	index = 0
 	while not is_vowel(word[index]):
 		index += 1
+		#print index
 	return word[:index]
 
 
@@ -119,12 +124,26 @@ def pigWord(word):
 
 			>>> pigWord('crystal')
 			'ystalcray'
+
+			>>> pigWord("Jake's")
+			"Ake'sjay"
+
+			>>> pigWord("can't")
+			"an'tcay"
+
+			>>> pigWord("she'")
+			"eshay'"
 	"""
+	if word[-1] == "'": 	# since single quote can be an apostrophe, it get's passed to this function
+		close_quote = "'"	# if it's at the end it's a close quote so stick on the end
+		word = word[:-1]
+	else:
+		close_quote = ''
 	if starting_sound(word) == '':
 		sound = 'w'
 	else:
 		sound = starting_sound(word)
-	output = word[len(starting_sound(word)):] + sound + 'ay'
+	output = word[len(starting_sound(word)):] + sound + 'ay' + close_quote
 	if is_capitalized(word):
 		output = output.capitalize()
 	return output
@@ -148,6 +167,9 @@ def findWordStart(phrase):
 			7
 
 			>>> findWordStart('!!!!')
+			-1
+
+			>>> findWordStart("'")
 			-1
 	"""
 	index = 0
@@ -176,11 +198,17 @@ def findWordEnd(phrase):
 
 			>>> findWordEnd('!!!!!!')
 			-1
+
+			>>> findWordEnd("can't")
+			5
+
+			>>> findWordEnd("she'") # since single quote can be apostrophe or close quote, we leave it on and is handled by pigWord
+			4
 	"""
 	index = findWordStart(phrase)
 	if index == -1:  # no words to begin with
 		return -1
-	while index < len(phrase) and is_letter(phrase[index]):
+	while index < len(phrase) and (is_letter(phrase[index]) or phrase[index] == "'"): #apostrophe doesn't end a word for contractions
 		index += 1
 	return index
 
@@ -200,24 +228,23 @@ def translate(phrase):
 			>>> translate('But soft! What light through yonder window breaks? It is the east, and Juliet is the sun.')
 			'Utbay oftsay! Atwhay ightlay oughthray onderyay indowway eaksbray? Itway isway ethay eastway, andway Ulietjay isway ethay unsay.'
 
+			>>> translate("You can't do that!!")
+			"Ouyay an'tcay oday atthay!!"
+
+			>>> translate("But then she said to me, 'I've had enough.'")
+			"Utbay enthay eshay aidsay otay emay, 'I'veway adhay enoughway.'"
 	"""
 	output = ''
 	while len(phrase) > 0:
-		# print phrase
 		start, end = findWordStart(phrase), findWordEnd(phrase)		# so we don't call function many times
-		if start == -1:			# there are no words left
-			output += phrase	# stick on whats left
-			phrase = ''			# empty phrase to get out of the loop
-		else:
-			# print str(start) + " " + str(end)
-			# print phrase[start:end]
-			output += phrase[:start]  									# get everything before the word
-			output += pigWord(phrase[start:end])  						# get the translated word
-			phrase = phrase[end:]  										# slice off what we got
-			# print output
-			# print "\n"
+		if start != -1:								# there are words left
+			output += phrase[:start]  				# get everything before the word
+			output += pigWord(phrase[start:end])  	# get the translated word
+			phrase = phrase[end:]  					# slice off what we got
+		else: # no words left
+			output += phrase						# stick on whats left
+			phrase = ''								# empty phrase to get out of the loop
 	return output
-
 
 if __name__ == "__main__":
 	import doctest
