@@ -41,7 +41,7 @@
 # 2014-04-01 18:00
 # Jake: added support for contractions and quotation marks
 # 
-# 2014-04-01 18:00
+# 2014-04-02 18:00
 # Jake: fixed conflict between possessive apostrophe and single quotation marks
 
 def is_vowel(char):
