@@ -1,6 +1,6 @@
 # Team The Other White Meat -- Dante Secada-Oz, Jake Waksbaum, Lydia Chen
 # IntroCS2 pd 1
-# HW 26 - Anslatingtray Englishway intoway Igpay Atinlay  
+# # HW27 -- Pig Latin Translator, Version 1.1
 # 2014-3-31
 # 
 # Pig Latin Rules:
@@ -40,6 +40,9 @@
 #
 # 2014-04-01 18:00
 # Jake: added support for contractions and quotation marks
+# 
+# 2014-04-01 18:00
+# Jake: fixed conflict between possessive apostrophe and single quotation marks
 
 def is_vowel(char):
 	"""checks if one character string char is a vowel
@@ -152,8 +155,14 @@ def pigWord(word):
 
 			>>> pigWord("she'")
 			"eshay'"
+
+			>>> pigWord("chef's")
+			"ef'schay"
+
+			>>> pigWord("pigs'")
+			"igs'pay"
 	"""
-	if word[-1] == "'": 	# since single quote can be an apostrophe, it get's passed to this function
+	if word[-1] == "'" and word[-2].lower() != 's': 	# since single quote can be an apostrophe, it get's passed to this function
 		close_quote = "'"	# if it's at the end it's a close quote so stick on the end
 		word = word[:-1]
 	else:
@@ -261,6 +270,9 @@ def translate(phrase):
 
 			>>> translate("But then she said to me, 'I've had enough.'")
 			"Utbay enthay eshay aidsay otay emay, 'I'veway adhay enoughway.'"
+
+			>>> translate("He enjoyed the chef's finest dishes' tastes.")
+			"Ehay enjoyedway ethay ef'schay inestfay ishes'day astestay."
 	"""
 	output = ''
 	while len(phrase) > 0:
