@@ -3,13 +3,6 @@
 # HW#28 -- The Reigning Champion
 # 2014-04-03
 
-#print [1] + [2]
-#x = [1,2]
-#y = [3,4]
-#print x + y
-#print x
-#print [1,2] + [2,3]
-
 def minPos(l):
     """takes a list L containing only numeric elements, and returns the position (index) of the least value
     >>> minPos([1,2,3,-72])
