@@ -24,7 +24,7 @@
    [1,2,2,3]
 ```
 
-##Reigning Champ <small>4/4</small>
+#Reigning Champ <small>4/4</small>
 
 pit each element against the other one at a time
 **make sure to initialize first gladioator at first element not 0**
@@ -62,7 +62,7 @@ starts at 1
 
 doesn't add 1 then mod because ```x[3::3] -> ['Y', 4, 4]```
 
-###Negatives
+##Negatives
 ```python
 >>> x[::-1]
 [4, 'H', '$', 4, 'K', 4, 'Y', 0, 0, 'G']
@@ -93,5 +93,5 @@ x[::0] -> Error
 ['G', 0, 0, 'Y']
 ```
 
-###Summary
+##Summary
 ```x[start:len:mod]``` returns the first len mod'th element starting at start. returns as many as can, no error if len is too big
