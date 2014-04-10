@@ -49,6 +49,7 @@ def doublify(L):
         L[index] *= 2
         index += 1
 
+
 import doctest
 doctest.testmod()
 print
