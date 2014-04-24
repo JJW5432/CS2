@@ -24,7 +24,7 @@ def minPos(l):
     return lowest
 
 def listSum(L):
-    """takes a list L containing only numbers, and returns the sum of Lâs elements
+    """takes a list L containing only numbers, and returns the sum of elements
     Tests:
     >>> listSum( [0,1,2,3] )
     6
@@ -52,4 +52,3 @@ def doublify(L):
 
 import doctest
 doctest.testmod()
-print
