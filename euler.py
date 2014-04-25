@@ -142,6 +142,7 @@ some **= 2
 difference = some - squares
 
     
-if __name__ == "__main__": #runs tests in correct context
-    import doctest
-    doctest.testmod()
+ if True: #runs tests in correct context
+        import doctest
+        doctest.testmod()
+        print 'hey'
