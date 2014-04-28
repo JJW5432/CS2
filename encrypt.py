@@ -73,8 +73,8 @@ def rot13(phrase):
     >>> rot13('Justin Bieber')
     'Whfgva Ovrore'
 
-    >>> rot13('Justin Bieber? Like, OMG!!! He\'s my hero!')
-    'Whfgva Ovrore? Yvxr, BZT!!! Ur\'f zl ureb!'
+    >>> rot13("Justin Bieber? Like, OMG!!! He's my hero!")
+    "Whfgva Ovrore? Yvxr, BZT!!! Ur'f zl ureb!"
     """
     index = 0
     output = ''
