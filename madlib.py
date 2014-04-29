@@ -23,8 +23,8 @@ def find_tag(s):
     """finds a tag in the form <TAG> and returns [start, end, TAG]"""
     start = s.find('<')
     end = s.find('>')
-    if end < start \            # first > is before <
-       or s[start-1] == '/' \   # commented out
+    if end < start \
+       or s[start-1] == '/' \
        or s[end-1] == '/':
         return False
     elif s[start+1:end].upper() in tags:
