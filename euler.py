@@ -142,7 +142,7 @@ some **= 2
 difference = some - squares
 
     
- if True: #runs tests in correct context
-        import doctest
-        doctest.testmod()
-        print 'hey'
+if True: #runs tests in correct context
+    import doctest
+    doctest.testmod()
+    print 'hey'

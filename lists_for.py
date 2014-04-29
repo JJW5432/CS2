@@ -4,7 +4,7 @@
 # 2014-04-08
 
 def listSum(L):
-    """takes a list L containing only numbers, and returns the sum of Lâs elements
+    """takes a list L containing only numbers, and returns the sum of it's elements
     Tests:
     >>> listSum( [0,1,2,3] )
     6

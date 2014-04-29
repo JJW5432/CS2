@@ -11,7 +11,7 @@ def bondify(name):
         'Bond, James Bond'
 
         >>> bondify("Jake Waksbaum")
-        'Waksbaum, Jake Waksbau'
+        'Waksbaum, Jake Waksbaum'
     """
     index = 0 #counter
     first, last = '', '' #storage

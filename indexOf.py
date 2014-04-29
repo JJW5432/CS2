@@ -3,7 +3,7 @@ def indexOf(s, x):
     while index < len(s) and s[index] != x:
         index += 1
     else:
-        if index = len(s):
+        if index == len(s):
             return -1
         else:
             return index

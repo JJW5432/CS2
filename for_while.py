@@ -49,7 +49,7 @@ def listOFib(n):
     return output
 
 def sentify(L):
-    """returns a string comprised of list L’s elements, in order, with spaces between. Assumes L contains only string elements.
+    """returns a string comprised of list L's elements, in order, with spaces between. Assumes L contains only string elements.
     >>> sentify( ["this", "is", "how", "we", "do"] )
     'this is how we do'
     """

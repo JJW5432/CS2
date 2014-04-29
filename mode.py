@@ -37,7 +37,7 @@ def modeListB(L):
     while index < len(L):
         if L.index(L[index]) == index:  # if the index of the element at index L is the first occurance of said element
             uniq.append(L[index])       # ^^ matches only once per element, specifically the first occurance
-
+        index += 1
     champ = [ L[0] ]
     for x in uniq:
         if L.count(x) > L.count(champ[0]):
@@ -92,4 +92,4 @@ def vBarGraphify(nums):
 
 import doctest
 doctest.testmod()
-print "tested"
+#print "tested"
