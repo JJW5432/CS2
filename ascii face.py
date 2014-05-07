@@ -26,8 +26,15 @@ def alphabetize(names):
     merged = []
     for index in range(len(names)/2):                               # loop over every element in each of the half-lists
         merged.append(names[::2][index] + ' ' + names[1::2][index]) # combine corresponding names (those with same index in half-lists)
-    merged = sorted(merged)
+    merged = alpha_sort(merged)
     return "\n".join(merged)
+
+def alpha_sort(L):
+    output = []
+    while len(L) >= 1:
+        output.append(min(L))
+        L.remove(min(L))
+    return output
 
 if __name__ == "__main__":
     import doctest
