@@ -1,0 +1,90 @@
+jake.waksbaum@cslab3-18:~$ python
+Python 2.7.3 (default, Aug  1 2012, 05:16:07) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> e = {'1':5, 1:7, 2:3, 4:3}
+>>> e
+{'1': 5, 1: 7, 2: 3, 4: 3}
+>>> e[1]
+7
+>>> e['1]
+  File "<stdin>", line 1
+    e['1]
+        ^
+SyntaxError: EOL while scanning string literal
+>>> e['1']
+5
+>>> e[2]
+3
+>>> e[3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 3
+>>> e[4]
+3
+>>> e[::2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type
+>>> for x in e:
+... print x
+  File "<stdin>", line 2
+    print x
+        ^
+IndentationError: expected an indented block
+>>> 
+>>> for x in e:
+...   C-c C-c
+KeyboardInterrupt
+>>> for x in e:
+... print "f
+  File "<stdin>", line 2
+    print "f
+        ^
+IndentationError: expected an indented block
+>>>   C-c C-c
+KeyboardInterrupt
+>>> exit()
+jake.waksbaum@cslab3-18:~$ python
+Python 2.7.3 (default, Aug  1 2012, 05:16:07) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> e= {}
+>>> e[1] = 4
+>>> e
+{1: 4}
+>>> d = [1]
+>>> d[2] = 5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> for x in e:
+...   C-c C-c
+KeyboardInterrupt
+>>> e
+{1: 4}
+>>> e['a'] = 'b'
+>>> e.pop('a')\
+... 
+'b'
+>>> e
+{1: 4}
+>>> del e[1]
+>>> e
+{}
+>>> x = 6
+>>> del x
+>>> x
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'x' is not defined
+>>> L = range(20)
+>>> del L[::2]
+>>> L
+[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+>>> e
+{}
+>>> for x in range(100):
+...   C-c C-c
+KeyboardInterrupt
+>>> 
