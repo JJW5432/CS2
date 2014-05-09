@@ -1,0 +1,6 @@
+# Jake Waksbaum
+# IntroCS2 pd 1
+# HW44 -- Log: It’s Big, It’s Heavy, It’s Wood  
+# 2014-05-09
+
+First I thought that tested the File reading by creating a text file and using Python to read and print its contents. Then I figured no matter how I implemented the rest, I'd need to strip punctuation so I began writing a function to do this, along with some tests which failed.
