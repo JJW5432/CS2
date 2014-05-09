@@ -1,21 +1,27 @@
 file = open('./story.txt', 'r')
-text = file.read()
+ptext = file.read()
 file.close()
 #print text
 
-from string import ascii_letters
+from string import punctuation
 
-def is_letter(char):
-    return char in ascii_letters
-
-def strip_punctuation(word):
-    for i in range(len(word)):
-        char = word[i]
-        if not is_letter(char):
-            word = word[:i] + word[1+i:]
-    return word
+#def jake_strip(word, chars):
+#    while word[0] in chars or word[-1] in chars:
+#        if word[0] in chars:
+#            word = word[1:]
+#        elif word[-1] in chars:
+#            word = word[:-1]
+#    return word
 
 
 def word_count(text):
-    words = text.split(' ').strip()
-    
+    words = text.split(' ')
+    buckets = {}
+    for word in words:
+        #preprocess
+        word = word.strip(punctuation).lower()
+        if word in buckets.keys():
+            buckets[word] += 1
+        else:
+            buckets[word] = 1
+    return buckets
