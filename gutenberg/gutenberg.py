@@ -1,7 +1,7 @@
 file = open('./story.txt', 'r')
 text = file.read()
 file.close()
-print text
+#print text
 
 from string import ascii_letters
 
