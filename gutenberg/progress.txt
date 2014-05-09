@@ -3,4 +3,11 @@
 # HW44 -- Log: It’s Big, It’s Heavy, It’s Wood  
 # 2014-05-09
 
-First I thought that tested the File reading by creating a text file and using Python to read and print its contents. Then I figured no matter how I implemented the rest, I'd need to strip punctuation so I began writing a function to do this, along with some tests which failed.
+5/8 - First I thought that tested the File reading by creating a text file and using Python to read and print its contents. Then I figured no matter how I implemented the rest, I'd need to strip punctuation so I began writing a function to do this, along with some tests which failed.
+
+5/9 - Learned about strip, no longer need strip_punctuation
+Investigated conversion of strings and ints to Booleans:
+	     '' => False
+	     other strings => True
+	     0 => False
+	     other numbers => True
