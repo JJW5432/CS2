@@ -1,0 +1,3 @@
+[submodule "cs-gutenberg"]
+	path = cs-gutenberg
+	url = git@bitbucket.org:JJW5432/cs-gutenberg.git
