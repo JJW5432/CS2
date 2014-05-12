@@ -1,4 +1,4 @@
-#import pytest
+import pytest
 from string import punctuation
 
 def word_count(text):
@@ -14,15 +14,31 @@ def word_count(text):
 			buckets[word] = 1
 	return buckets
 
-def cutoff(old_dict, cutoff):
-	"""returns a dictionary of length cutoff of the key value pairs from old_dict with the highest values"""
+#proof of concept for dict_html
+def cutoff(d, cutoff):
+	"""returns a dictionary of length cutoff of the key value pairs from d with the highest values"""
 	#pytest.set_trace()
 	new_dict = {}
 	while len(new_dict) < cutoff:
-		highest = max(old_dict.values())
-		for key in old_dict:
-			if old_dict[key] == highest:
+		highest = max(d.values())
+		for key in d:
+			if d[key] == highest:
 				new_dict[key] = highest
-				del old_dict[key]
+				del d[key]
 				break
 	return new_dict
+
+def dict_html(d, cutoff=None, key_header="key", value_header="value"):
+	#pytest.set_trace()
+	if cutoff == None: cutoff = len(d)
+	outstring = ["<table border='1px'>"]
+	outstring += ["<tr><th>" + key_header + "</th><th>" + value_header + "</th></tr>"]
+	while len(outstring)-2 < cutoff:
+		highest = max(d.values())
+		for key in d:
+			if d[key] == highest:
+				outstring += ["<tr><td>" + str(key) + "</td><td>" + str(highest) + "</td></tr>"]
+				del d[key]
+				break
+	outstring += ["</table>"]
+	return '\n'.join(outstring)

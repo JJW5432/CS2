@@ -1,4 +1,4 @@
-from gutenberg import *
+from wc import *
 
 def test_word_count():
 	assert word_count("Hello good sir") == {"hello":1, "good":1, "sir":1}
@@ -9,3 +9,24 @@ def test_word_count():
 def test_cutoff():
 	assert cutoff({'one':1, 'two':2, 'three':3}, 1) == {'three': 3}
 	assert cutoff({'one':1, 'two':2, 'three':3, 'four': 4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9, 'ten':10}, 4) == {'ten': 10, 'nine':9, 'eight':8, 'seven':7}
+
+
+PATH = './test_wc.html'
+def setup_test_dict_html():
+	import os
+	if os.path.isfile(PATH): 
+		os.remove(PATH)
+	f = open(PATH, 'w')
+
+def test_dict_html():
+	f = open(PATH, 'w')
+
+	html = dict_html({'one':1})
+	f.write(html+"\n<!---->\n")
+
+	f.write("<br>")
+
+	html = dict_html({'one':1, 'two':2, 'three':3, 'four': 4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9, 'ten':10}, 5)
+	f.write(html+"\n<!---->\n")
+
+	f.close()
