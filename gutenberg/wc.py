@@ -10,14 +10,15 @@ def word_count(text):
 		word = word.strip(punctuation).lower()
 		if word in buckets.keys():
 			buckets[word] += 1
-		else:
+		elif word != '':
 			buckets[word] = 1
 	return buckets
 
 #proof of concept for dict_html
-def cutoff(d, cutoff):
+def cutoff(old_dict, cutoff):
 	"""returns a dictionary of length cutoff of the key value pairs from d with the highest values"""
 	#pytest.set_trace()
+	d = old_dict.copy() #make a copy
 	new_dict = {}
 	while len(new_dict) < cutoff:
 		highest = max(d.values())
@@ -28,9 +29,9 @@ def cutoff(d, cutoff):
 				break
 	return new_dict
 
-def dict_html(d, cutoff=None, key_header="key", value_header="value"):
+def dict_html(old_dict, cutoff, key_header="key", value_header="value"):
 	#pytest.set_trace()
-	if cutoff == None: cutoff = len(d)
+	d = old_dict.copy() #make a copy
 	outstring = ["<table border='1px'>"]
 	outstring += ["<tr><th>" + key_header + "</th><th>" + value_header + "</th></tr>"]
 	while len(outstring)-2 < cutoff:
